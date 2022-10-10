@@ -19,6 +19,22 @@
 
             int[] uniqueOccurrencesArr = { 1, 2, 2, 1, 1, 3 };
             Console.WriteLine(UniqueOccurrences(uniqueOccurrencesArr));
+            
+
+            // SOME DIFFERENCES OF C SHARP VS JAVA
+
+            // initialization, ex hashmap/dictionary literals
+            var dict = new Dictionary<string, int> {
+                {"rafi", 1231},
+                {"jacob", 424324},
+            };
+
+            // exception handling
+
+            // generics 
+
+
+            BinaryTreeProblems.CheckTree();
         }
 
         public static int[] TwoSum(int[] nums, int target)
@@ -60,6 +76,10 @@
             }
 
             return true;
+        }
+
+        public static Tuple<string, int> TestMethod() {
+            return Tuple.Create("Steve", 1);
         }
     }
 }
