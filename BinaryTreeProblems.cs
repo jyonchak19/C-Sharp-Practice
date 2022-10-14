@@ -4,18 +4,29 @@
 
     public class BinaryTreeProblems
     {
-        public class BinaryTreeNode
+        public class Node
         {
             public int Value { get; set; }
-            public BinaryTreeNode Left { get; set; }
-            public BinaryTreeNode Right { get; set; }
+            public Node Left { get; set; }
+            public Node Right { get; set; }
+
+            public Node(int value)
+            {
+                Value = value;
+            }
+
+            public Node(int value, Node left, Node right) : this(value)
+            {
+                Left = left;
+                Right = right;
+            }
         }
         public BinaryTreeProblems()
         {
 
         }
 
-        public static bool CheckTree(BinaryTreeNode root)
+        public static bool CheckTree(Node root)
         {
             if (root.Left == null && root.Right == null)
                 return true;

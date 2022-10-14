@@ -18,7 +18,7 @@
             }
 
             int[] uniqueOccurrencesArr = { 1, 2, 2, 1, 1, 3 };
-            Console.WriteLine(UniqueOccurrences(uniqueOccurrencesArr));
+            Console.WriteLine("UniqueOccurrences = " + UniqueOccurrences(uniqueOccurrencesArr));
             
 
             // SOME DIFFERENCES OF C SHARP VS JAVA
@@ -33,8 +33,27 @@
 
             // generics 
 
+            // binary tree
 
-            BinaryTreeProblems.CheckTree();
+            BinaryTreeProblems.Node BottomLeft = new BinaryTreeProblems.Node(4);
+            BinaryTreeProblems.Node BottomRight = new BinaryTreeProblems.Node(6);
+            BinaryTreeProblems.Node Top = new BinaryTreeProblems.Node(10, BottomLeft, BottomRight);
+
+            bool result = BinaryTreeProblems.CheckTree(Top);
+            Console.WriteLine("CheckTree = " + result);
+
+            BottomLeft.Value = 3;
+            BottomRight.Value = 1;
+            Top.Value = 5;
+
+            result = BinaryTreeProblems.CheckTree(Top);
+            Console.WriteLine("CheckTree2 = " + result);
+
+            // matrix roatation
+
+            int[,] Matrix = new int[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+            InterviewProblems.RotateMatrix(Matrix);
+            PrintMatrix(Matrix);
         }
 
         public static int[] TwoSum(int[] nums, int target)
@@ -80,6 +99,19 @@
 
         public static Tuple<string, int> TestMethod() {
             return Tuple.Create("Steve", 1);
+        }
+
+        public static void PrintMatrix(int[,] matrix)
+        {
+            int n = matrix.GetLength(0);
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine();
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write(matrix[i, j]);
+                }
+            }
         }
     }
 }
