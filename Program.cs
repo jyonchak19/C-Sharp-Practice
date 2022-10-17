@@ -52,6 +52,7 @@
             // matrix roatation
 
             int[,] Matrix = new int[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+            PrintMatrix(Matrix);
             InterviewProblems.RotateMatrix(Matrix);
             PrintMatrix(Matrix);
         }
@@ -110,8 +111,10 @@
                 for (int j = 0; j < n; j++)
                 {
                     Console.Write(matrix[i, j]);
+                    Console.Write(" ");
                 }
             }
+            Console.WriteLine();
         }
     }
 }
