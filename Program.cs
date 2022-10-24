@@ -55,6 +55,18 @@
             PrintMatrix(Matrix);
             InterviewProblems.RotateMatrix(Matrix);
             PrintMatrix(Matrix);
+            Console.WriteLine();
+
+            //Valid string test
+
+            string s1 = "(){}[]";
+            Console.WriteLine(InterviewProblems.isValid(s1));
+            string s2 = "([)]";
+            Console.WriteLine(InterviewProblems.isValid(s2));
+            string s3 = "(3)";
+            Console.WriteLine(InterviewProblems.isValid(s3));
+            string s4 = "(]";
+            Console.WriteLine(InterviewProblems.isValid(s4));
         }
 
         public static int[] TwoSum(int[] nums, int target)
