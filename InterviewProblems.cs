@@ -6,6 +6,12 @@
 
     public class InterviewProblems
     {
+
+        public class LLNode
+        {
+            public int Value { get; set; }
+            public LLNode Next { get; set; }
+        }
         public static void RotateMatrix(int[,] matrix)
         {
             int n = matrix.GetLength(0);
@@ -30,7 +36,7 @@
             }
         }
 
-        public static bool isValid(string s)
+        public static bool IsValid(string s)
         {
             Stack<char> stack = new Stack<char>();
             foreach(char c in s)
@@ -53,7 +59,7 @@
             return stack.Count == 0;
         }
 
-        public static bool isValid2(string s)
+        public static bool IsValid2(string s)
         {
             ArrayList list = new ArrayList();
             int index;
@@ -91,7 +97,7 @@
             return list.Count == 0;
         }
 
-        public static Tuple<int, int> twoSumBF(int[] nums, int target)
+        public static Tuple<int, int> TwoSumBF(int[] nums, int target)
         {
             for(int i = 0; i < nums.Length; i++)
             {
@@ -104,7 +110,7 @@
             return new Tuple<int, int>(-1, -1);
         }
 
-        public static Tuple<int, int> twoSumOptimized(int[] nums, int target)
+        public static Tuple<int, int> TwoSumOptimized(int[] nums, int target)
         {
             Dictionary<int, int> dict = new Dictionary<int, int>();
 
@@ -117,6 +123,43 @@
                     dict.Add(nums[i], i);
             }
             return new Tuple<int, int>(-1, -1);
+        }
+
+        public static LLNode RemoveNode(LLNode head, int val)
+        {
+
+            while(head != null && head.Value == val)
+            {
+                head = head.Next;
+            }
+
+            if (head == null)
+                return null;
+
+            LLNode node = head;
+
+            while (node != null && node.Next != null)
+            {
+                if(node.Next.Value == val)
+                {
+                    node.Next = node.Next.Next;
+                }
+                else
+                {
+                    node = node.Next;
+                }
+            }
+
+            return head;
+        }
+
+        public static LinkedList<int> RemoveNodeCSharpNative(LinkedList<int> ll, int val)
+        {
+            while (ll.Contains(val))
+            {
+                ll.Remove(val);
+            }
+            return ll;
         }
     }
 }

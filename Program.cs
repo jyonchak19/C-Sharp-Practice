@@ -59,22 +59,22 @@
 
             //Valid string test
 
-            Console.WriteLine("isValid with stack");
+            Console.WriteLine("IsValid with stack");
             string s1 = "(){}[]";
-            Console.WriteLine(InterviewProblems.isValid(s1));
+            Console.WriteLine(InterviewProblems.IsValid(s1));
             string s2 = "([)]";
-            Console.WriteLine(InterviewProblems.isValid(s2));
+            Console.WriteLine(InterviewProblems.IsValid(s2));
             string s3 = "(3)";
-            Console.WriteLine(InterviewProblems.isValid(s3));
+            Console.WriteLine(InterviewProblems.IsValid(s3));
             string s4 = "(]";
-            Console.WriteLine(InterviewProblems.isValid(s4));
+            Console.WriteLine(InterviewProblems.IsValid(s4));
             Console.WriteLine();
 
-            Console.WriteLine("isValid with array list");
-            Console.WriteLine(InterviewProblems.isValid2(s1));
-            Console.WriteLine(InterviewProblems.isValid2(s2));
-            Console.WriteLine(InterviewProblems.isValid2(s3));
-            Console.WriteLine(InterviewProblems.isValid2(s4));
+            Console.WriteLine("IsValid with array list");
+            Console.WriteLine(InterviewProblems.IsValid2(s1));
+            Console.WriteLine(InterviewProblems.IsValid2(s2));
+            Console.WriteLine(InterviewProblems.IsValid2(s3));
+            Console.WriteLine(InterviewProblems.IsValid2(s4));
             Console.WriteLine();
 
             //TwoSum test
@@ -82,11 +82,11 @@
             Console.WriteLine("TwoSum brute force");
             int[] nums = new int[] { 2, 7, 11, 15 };
             int target = 9;
-            Console.WriteLine(InterviewProblems.twoSumBF(nums, target));
+            Console.WriteLine(InterviewProblems.TwoSumBF(nums, target));
             Console.WriteLine();
 
             Console.WriteLine("TwoSum optimized");
-            Console.WriteLine(InterviewProblems.twoSumOptimized(nums, target));
+            Console.WriteLine(InterviewProblems.TwoSumOptimized(nums, target));
             Console.WriteLine();
         }
 
