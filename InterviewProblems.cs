@@ -11,6 +11,11 @@
         {
             public int Value { get; set; }
             public LLNode Next { get; set; }
+
+            public LLNode(int value)
+            {
+                Value = value;
+            }
         }
         public static void RotateMatrix(int[,] matrix)
         {
@@ -157,7 +162,10 @@
         {
             while (ll.Contains(val))
             {
-                ll.Remove(val);
+                if (ll.First.Value == val)
+                    ll.RemoveFirst();
+                else
+                    ll.Remove(val);
             }
             return ll;
         }
