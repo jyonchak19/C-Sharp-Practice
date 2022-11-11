@@ -6,7 +6,7 @@
     input (nums): [2,7,11,15], target: 9
     output: [0,1] bc 2 + 7 = 9
     */
-    public class Class1
+    public class CSharpPracticeProblems
     {
         static void Main(string[] args)
         {
@@ -26,7 +26,7 @@
 
             //MatrixRotation();
 
-            //ValidStringTest();
+            ValidStringTest();
 
             //TwoSumTest();
 
@@ -100,7 +100,7 @@
         public static void TwoSumTest()
         {
             int[] twoSumArr = { 2, 7, 11, 15 };
-            int[] twoSumResult = Class1.TwoSum(twoSumArr, 9);
+            int[] twoSumResult = CSharpPracticeProblems.TwoSum(twoSumArr, 9);
             foreach (int i in twoSumResult)
             {
                 Console.WriteLine(i);
