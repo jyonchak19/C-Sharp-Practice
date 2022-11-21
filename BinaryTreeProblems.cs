@@ -26,13 +26,13 @@
 
         }
 
-        public static bool CheckTree(Node root)
+        public static bool CheckChildSum(Node root)
         {
             if (root.Left == null && root.Right == null)
                 return true;
             if (root.Right.Value + root.Left.Value != root.Value)
                 return false;
-            return CheckTree(root.Left) && CheckTree(root.Right);
+            return CheckChildSum(root.Left) && CheckChildSum(root.Right);
         }
 
         /*		10
