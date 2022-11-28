@@ -8,6 +8,54 @@ namespace CSharpPracticeApp
 {
     public class EC2 : IAWSServer
     {
+        class Server
+        {
+            public int weight { get; set; }
+            public int index { get; set; }
+
+            public Server(int weight, int index)
+            {
+                this.weight = weight;
+                this.index = index;
+            }
+
+        }
+
+        class AssignedServer
+        {
+            public int freeTime { get; set; }
+            public Server server { get; set; }
+
+            public AssignedServer(int freeTime, Server server)
+            {
+                this.freeTime = freeTime;
+                this.server = server;
+            }
+        }
+
+        class ServerComparer : IComparer<Server>
+        {
+            public int Compare(Server x, Server y)
+            {
+                if(x.weight - y.weight == 0)
+                {
+                    return x.index - y.index;
+                }
+                else
+                {
+                    return x.weight - y.weight;
+                }
+            }
+        }
+
+        class AssignedServerComparer : IComparer<AssignedServer>
+        {
+            public int Compare(AssignedServer x, AssignedServer y)
+            {
+                return x.freeTime - y.freeTime;
+            }
+        }
+
         void IAWSServer.Analytics()
         {
             Console.WriteLine("CPU Usage: X, Memory Usage: Y, Storage Usage: Z");
@@ -21,6 +69,18 @@ namespace CSharpPracticeApp
         void IAWSServer.Storage()
         {
             Console.WriteLine("M instances for storage available.");
+        }
+
+        public int[] ProcessTasks(int[] servers, int[] tasks)
+        {
+            //Initialize two priority queues for servers and assigned servers
+            var serverQueue = new PriorityQueue<Server, Server>(new ServerComparer());
+            var assignedServerQueue = new PriorityQueue<AssignedServer, AssignedServer>(new AssignedServerComparer());
+
+            //Store servers into priority queue for servers
+
+
+            //Start assigning and processing tasks
         }
     }
 }
