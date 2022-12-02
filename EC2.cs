@@ -78,9 +78,44 @@ namespace CSharpPracticeApp
             var assignedServerQueue = new PriorityQueue<AssignedServer, AssignedServer>(new AssignedServerComparer());
 
             //Store servers into priority queue for servers
-
+            for(int i = 0; i < servers.Length; i++)
+            {
+                Server server = new Server(servers[i], i);
+                serverQueue.Enqueue(server, server);
+            }
 
             //Start assigning and processing tasks
+            int[] returnArray = new int[tasks.Length];
+            int j = 0;
+            int time = 0;
+
+            while(j < tasks.Length)
+            {
+                //Check what servers have become free
+                while(assignedServerQueue.Count > 0 && assignedServerQueue.Peek().freeTime <= time)
+                {
+                    Server server = assignedServerQueue.Dequeue().server;
+                    serverQueue.Enqueue(server, server);
+                }
+
+                //Assign tasks to available servers
+                while(serverQueue.Count != 0 && j <= time && j < tasks.Length)
+                {
+                    int task = tasks[j];
+                    Server server = serverQueue.Dequeue();
+                    AssignedServer assignedServer = new AssignedServer(time + task, server);
+                    assignedServerQueue.Enqueue(assignedServer, assignedServer);
+                    returnArray[j] = server.index;
+                    j++;
+                }
+
+                //Increase time to process the next task
+                if (serverQueue.Count > 0)
+                    time++;
+                else
+                    time = assignedServerQueue.Peek().freeTime;
+            }
+            return returnArray;
         }
     }
 }
