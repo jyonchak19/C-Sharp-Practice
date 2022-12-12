@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharpPracticeApp
 {
+    // This is an example class for the factory design pattern.
     public class S3 : IAWSServer
     {
         void IAWSServer.Analytics()

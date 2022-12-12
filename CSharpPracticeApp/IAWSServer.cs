@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSharpPracticeApp
 {
+    // This is the interface that we are using for the factory pattern.
     public interface IAWSServer
     {
         void Compute();
