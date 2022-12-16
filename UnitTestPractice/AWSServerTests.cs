@@ -19,15 +19,5 @@ namespace UnitTestPractice
             EC2 ec2 = new EC2();
             CollectionAssert.AreEqual(expectedResult, ec2.ProcessTasks(serverInput, tasksInput));
         }
-
-        [TestMethod]
-        public void ProcessTasksTest2()
-        {
-            int[] serverInput = { 5, 1, 4, 3, 2 };
-            int[] tasksInput = { 2, 1, 2, 4, 5, 2, 1 };
-            int[] expectedResult = { 1, 4, 1, 4, 1, 3, 2 };
-            EC2 ec2 = new EC2();
-            CollectionAssert.AreEqual(expectedResult, ec2.ProcessTasks(serverInput, tasksInput));
-        }
     }
 }
